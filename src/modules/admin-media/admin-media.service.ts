@@ -2,8 +2,10 @@ import { BadRequestException, Injectable, InternalServerErrorException } from '@
 import { ConfigService } from '@nestjs/config';
 import { v2 as cloudinary } from 'cloudinary';
 
+import type { File as MulterFile } from 'multer';
+
 type UploadImageInput = {
-  file: Express.Multer.File;
+  file: MulterFile;
   folder: string;
 };
 

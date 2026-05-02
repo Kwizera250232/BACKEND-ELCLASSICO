@@ -69,7 +69,7 @@ export class AdminMediaController {
   )
   async upload(
     @Headers('authorization') authorization: string | undefined,
-    @UploadedFile() file: Express.Multer.File,
+    @UploadedFile() file: any,
     @Body('folder') folder = 'general',
   ) {
     await this.assertAdmin(authorization);
