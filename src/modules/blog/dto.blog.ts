@@ -3,15 +3,15 @@ import { IsBoolean, IsOptional, IsString, MinLength } from 'class-validator';
 export class CreateBlogPostDto {
   @IsString()
   @MinLength(3)
-  title: string;
+  title!: string;
 
   @IsString()
   @MinLength(10)
-  excerpt: string;
+  excerpt!: string;
 
   @IsString()
   @MinLength(10)
-  content: string;
+  content!: string;
 
   @IsString()
   @IsOptional()
