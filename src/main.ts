@@ -9,7 +9,10 @@ async function bootstrap() {
   const logger = new Logger('Bootstrap');
   const config = app.get(ConfigService);
   const usersService = app.get(UsersService);
-  const port = config.get<number>('API_PORT', 4001);
+  const rawPort =
+    config.get<string>('PORT') ??
+    String(config.get<number>('API_PORT', 4001));
+  const port = Number.parseInt(rawPort, 10) || 4001;
   const origin = config.get<string>('FRONTEND_ORIGIN', 'http://localhost:3001');
   const allowedOrigins = origin
     .split(',')
