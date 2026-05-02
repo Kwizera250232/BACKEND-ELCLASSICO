@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ApartmentsModule } from './modules/apartments/apartments.module';
+import { BlogModule } from './modules/blog/blog.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { EventsModule } from './modules/events/events.module';
 import { HealthModule } from './modules/health/health.module';
@@ -24,6 +25,7 @@ import { PrismaService } from './prisma.service';
     EventsModule,
     ReservationsModule,
     ApartmentsModule,
+    BlogModule,
   ],
   providers: [PrismaService],
 })
