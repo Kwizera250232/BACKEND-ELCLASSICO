@@ -5,6 +5,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { EventsModule } from './modules/events/events.module';
 import { HealthModule } from './modules/health/health.module';
 import { MenuModule } from './modules/menu/menu.module';
+import { AdminMediaModule } from './modules/admin-media/admin-media.module';
 import { ReservationsModule } from './modules/reservations/reservations.module';
 import { UsersModule } from './modules/users/users.module';
 import { PrismaService } from './prisma.service';
@@ -18,6 +19,7 @@ import { PrismaService } from './prisma.service';
     HealthModule,
     AuthModule,
     UsersModule,
+    AdminMediaModule,
     MenuModule,
     EventsModule,
     ReservationsModule,
