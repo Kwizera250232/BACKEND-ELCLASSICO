@@ -50,6 +50,20 @@ Web runs at `http://localhost:3001`.
 | GET | `/api/events` | Events |
 | GET | `/api/blog` | Magazine / blog posts |
 
+## Deploy
+
+### Web (GitHub Pages — automatic)
+
+Pushes to `main` deploy the homepage via GitHub Actions:
+
+**https://kwizera250232.github.io/BACKEND-ELCLASSICO/**
+
+### API (Render — one-time setup)
+
+1. Open [Deploy to Render](https://render.com/deploy?repo=https://github.com/Kwizera250232/BACKEND-ELCLASSICO)
+2. Approve the blueprint (`render.yaml` creates API + PostgreSQL)
+3. After deploy, set repo variable `PUBLIC_API_URL` to your Render API URL (e.g. `https://el-classico-api.onrender.com/api`) and re-run the Pages workflow
+
 ## Security
 
 - Global request throttling (`@nestjs/throttler`)
