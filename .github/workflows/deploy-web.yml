@@ -7,9 +7,32 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  enable-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable GitHub Pages (workflow)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          gh api "repos/${{ github.repository }}/pages" >/dev/null 2>&1
+          if [ $? -ne 0 ]; then
+            gh api "repos/${{ github.repository }}/pages" -X POST -f build_type=workflow
+            echo "Created Pages site (workflow source)"
+          else
+            echo "Pages already enabled"
+          fi
+
+  build:
+    needs: enable-pages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -29,11 +52,18 @@ jobs:
           npm ci
           npm run build
 
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./web/out
-          publish_branch: gh-pages
-          force_orphan: true
-          commit_message: 'deploy: update GitHub Pages site'
+          path: web/out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
