@@ -32,13 +32,13 @@ const images = {
 };
 
 const navItems = [
-  ['Home', '#home'],
   ['Apartments', '#apartments'],
   ['Boats', '#boats'],
   ['Gallery', '#gallery'],
   ['Garden', '#garden'],
   ['Events', '#events'],
   ['Magazine', '/blog'],
+  ['About', '#about'],
   ['Contact', '#contact'],
 ] as const;
 
@@ -249,7 +249,9 @@ export function PremiumHome({ data, homepage }: PremiumHomeProps) {
         ) : null}
       </header>
 
-      <section id="home" className="relative overflow-hidden bg-abyss px-4 pb-16 pt-28 sm:px-5 sm:pb-20 sm:pt-32 lg:px-12 lg:pb-28 lg:pt-40">
+      <HomepageCatalog homepage={homepage} />
+
+      <section id="home" className="relative overflow-hidden bg-abyss px-4 pb-16 pt-20 sm:px-5 sm:pb-20 sm:pt-24 lg:px-12 lg:pb-28 lg:pt-28">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(217,170,75,0.18),transparent_30%)]" />
         <div className="relative mx-auto grid max-w-[1320px] items-center gap-9 sm:gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal className="order-2 text-center text-white lg:order-1 lg:text-left">
@@ -289,8 +291,6 @@ export function PremiumHome({ data, homepage }: PremiumHomeProps) {
           </Reveal>
         </div>
       </section>
-
-      <HomepageCatalog homepage={homepage} />
 
       <section id="about" className="px-4 py-16 sm:px-5 sm:py-20 lg:px-12 lg:py-28">
         <div className="mx-auto grid max-w-[1320px] items-center gap-12 lg:grid-cols-2">

@@ -54,9 +54,9 @@ function PriceCard({
           <p className="text-[0.62rem] font-extrabold uppercase tracking-[0.28em] text-gold">{tier}</p>
         ) : null}
         <h3 className="mt-2 font-[var(--font-heading)] text-3xl leading-none">{title}</h3>
-        <p className="mt-3 text-lg text-gold">
-          ${price ?? '—'}
-          {suffix}
+        <p className="mt-3 text-2xl font-semibold text-gold">
+          <span className="text-3xl">${price ?? '—'}</span>
+          <span className="text-base font-bold uppercase tracking-[0.12em] text-white/80">{suffix}</span>
         </p>
       </div>
     </article>
@@ -66,7 +66,7 @@ function PriceCard({
 export function HomepageCatalog({ homepage }: { homepage: HomepagePayload }) {
   return (
     <>
-      <section id="apartments" className="bg-[#030a10] px-4 py-16 sm:px-5 sm:py-20 lg:px-12 lg:py-24">
+      <section id="apartments" className="scroll-mt-24 bg-[#030a10] px-4 pb-16 pt-28 sm:px-5 sm:pb-20 sm:pt-32 lg:px-12 lg:pb-24 lg:pt-36">
         <div className="mx-auto max-w-[1320px]">
           <Reveal>
             <p className="text-center text-[0.67rem] font-bold uppercase tracking-[0.36em] text-gold">Stay with us</p>
