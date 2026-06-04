@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-sand: #dbc89a;
+  --color-cream: #f7efe0;
+  --color-ocean: #0f3b57;
+  --color-abyss: #081b2a;
+  --color-sunset: #f19658;
+  --color-coral: #df6e47;
+  --color-gold: #d9aa4b;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #030a10;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  color: var(--color-abyss);
+  background: var(--color-cream);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  display: none;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  font-size: 16px;
+}
+
+::selection {
+  background: rgba(217, 170, 75, 0.35);
+  color: #081b2a;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030a10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d9aa4b, #0f3b57);
+  border-radius: 999px;
+}

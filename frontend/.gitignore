@@ -1,13 +1,12 @@
 # Dependencies
 node_modules/
+.pnp
+.pnp.js
 
 # Build output
+.next/
+out/
 dist/
-web/.next/
-web/out/
-web/node_modules/
-frontend/.next/
-frontend/node_modules/
 
 # Environment files – never commit real secrets
 .env
@@ -15,8 +14,8 @@ frontend/node_modules/
 .env.production
 .env.*.local
 
-# Prisma
-prisma/migrations/*.sql
+# Vercel
+.vercel
 
 # OS / editor
 .DS_Store

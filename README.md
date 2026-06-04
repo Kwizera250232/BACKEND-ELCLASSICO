@@ -52,7 +52,16 @@ Web runs at `http://localhost:3001`.
 
 ## Deploy
 
-### Web (GitHub Pages)
+### Frontend (Vercel — recommended)
+
+Use the `frontend/` app (same as [Elclassicobeach-Frontent](https://github.com/Kwizera250232/Elclassicobeach-Frontent)):
+
+1. [Vercel Dashboard](https://vercel.com/kwizera-jean-de-dieus-projects) → import **BACKEND-ELCLASSICO** or **Elclassicobeach-Frontent**
+2. Root directory: `frontend` (if using this repo) or `.` (if using the Frontent repo)
+3. Environment variable: `NEXT_PUBLIC_API_URL` = your Render API URL + `/api`
+4. Deploy
+
+### Web (GitHub Pages — legacy)
 
 Every push to `main` builds the site and publishes to the `gh-pages` branch.
 
