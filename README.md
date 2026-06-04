@@ -52,17 +52,24 @@ Web runs at `http://localhost:3001`.
 
 ## Deploy
 
-### Web (GitHub Pages — automatic)
+### Web (GitHub Pages)
 
-Pushes to `main` deploy the homepage via GitHub Actions:
+Every push to `main` builds the site and publishes to the `gh-pages` branch.
 
-**https://kwizera250232.github.io/BACKEND-ELCLASSICO/**
+**Enable the site once** (repo admin):
 
-### API (Render — one-time setup)
+1. Open [Pages settings](https://github.com/Kwizera250232/BACKEND-ELCLASSICO/settings/pages)
+2. **Build and deployment → Source:** Deploy from a branch
+3. **Branch:** `gh-pages` / **Folder:** `/ (root)` → Save
+
+Live URL: **https://kwizera250232.github.io/BACKEND-ELCLASSICO/**
+
+### API (Render)
 
 1. Open [Deploy to Render](https://render.com/deploy?repo=https://github.com/Kwizera250232/BACKEND-ELCLASSICO)
-2. Approve the blueprint (`render.yaml` creates API + PostgreSQL)
-3. After deploy, set repo variable `PUBLIC_API_URL` to your Render API URL (e.g. `https://el-classico-api.onrender.com/api`) and re-run the Pages workflow
+2. Approve the blueprint (`render.yaml` provisions API + PostgreSQL)
+3. In GitHub → **Settings → Secrets and variables → Actions → Variables**, add `PUBLIC_API_URL` = `https://<your-service>.onrender.com/api`
+4. Re-run the **Deploy Web to GitHub Pages** workflow so the frontend points at your API
 
 ## Security
 
