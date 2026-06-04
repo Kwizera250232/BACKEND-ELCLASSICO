@@ -3,6 +3,8 @@ node_modules/
 
 # Build output
 dist/
+web/.next/
+web/node_modules/
 
 # Environment files – never commit real secrets
 .env
